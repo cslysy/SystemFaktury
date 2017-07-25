@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
@@ -33,7 +32,7 @@ public class FileDataStorage implements DataStorage {
     }
 
     @Override
-    public List<String> getAllInvoices() {
+    public List<Invoice> getAllInvoices() {
         //Wczytaj wszystkie lini z pliku
         //dla kazdej lini
         //wykonaj parsowanie rodzielajac dane po przecinkach i przypisujac je do zmiennych
@@ -42,11 +41,10 @@ public class FileDataStorage implements DataStorage {
         int readId;
         String readTitle;
         int readValue;
-        List lista = new ArrayList();
+        List<Invoice> lista = new ArrayList();
 
 
         String path = databaseDir + File.separator + DATABASE_FILE_NAME;
-        Charset charset = Charset.forName("ISO-8859-1");
         File file = new File(path);
         Scanner reader = null;
         try {
@@ -55,13 +53,15 @@ public class FileDataStorage implements DataStorage {
             e.printStackTrace();
         }
         StringTokenizer token;
-        while(reader.hasNextLine()){
-            token = new StringTokenizer(reader.nextLine(),",");
-            readId = (int) token.nextElement();
-            readTitle = (String) token.nextElement();
-            readValue = (int) token.nextElement();
-            lista.add(new Invoice(readId,readTitle,readValue));
-            }
+        if (reader != null) {
+            while(reader.hasNextLine()){
+                token = new StringTokenizer(reader.nextLine(),",");
+                readId = Integer.valueOf(String.valueOf(token.nextElement()));
+                readTitle = String.valueOf(token.nextElement());
+                readValue = Integer.valueOf(String.valueOf(token.nextElement()));
+                lista.add(new Invoice(readId,readTitle,readValue));
+                }
+        }
         return lista;
         }
 
