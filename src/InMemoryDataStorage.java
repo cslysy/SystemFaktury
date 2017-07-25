@@ -11,7 +11,7 @@ public class InMemoryDataStorage implements DataStorage {
     }
 
     @Override
-    public List<String> getAllInvoices(){
+    public List<Invoice> getAllInvoices(){
         return invoices;
     }
 }

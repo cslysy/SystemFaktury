@@ -5,5 +5,5 @@ public interface DataStorage {
 
     void save(Invoice invoice);
 
-    List<String> getAllInvoices();
+    List<Invoice> getAllInvoices();
 }
