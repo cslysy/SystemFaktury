@@ -47,6 +47,7 @@ public class FileDataStorage implements DataStorage {
 
     String databaseFilePath = databaseDir + File.separator + DATABASE_FILE_NAME;
 
+    //Some new comment
     return getAllInvoicesOldJava(databaseFilePath);
     //return getAllInvoicesNewJava(databaseFilePath);
   }
