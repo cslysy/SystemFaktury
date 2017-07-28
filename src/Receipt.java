@@ -1,7 +1,4 @@
-/**
- * Created by ardgh on 27.07.2017.
- */
-public class Receipt {
+public class Receipt implements SaleDocument {
 
     private int id;
     private String tytul;
@@ -13,14 +10,17 @@ public class Receipt {
         this.kwota = kwota;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public String getTytul() {
         return tytul;
     }
 
+    @Override
     public int getKwota() {
         return kwota;
     }

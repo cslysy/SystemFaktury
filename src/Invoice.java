@@ -1,5 +1,5 @@
 
-public class Invoice {
+public class Invoice implements SaleDocument {
 
     private int id;
     private String tytul;
@@ -13,24 +13,29 @@ public class Invoice {
         this.nip = nip;
     }
 
+    @Override
     public int getId() {
         return id;
     }
 
+    @Override
     public String getTytul() {
         return tytul;
     }
 
+    @Override
     public int getKwota() {
         return kwota;
     }
 
-    public int getNip() { return nip;}
+    public int getNip() {
+        return nip;
+    }
 
     @Override
     public String toString() {
         return "\n" + "Invoice{" +
-                "id=" + id + "\n"+
+                "id=" + id + "\n" +
                 "tytul='" + tytul + '\'' + "\n" +
                 "kwota=" + kwota + "\n" +
                 "nip=" + nip +

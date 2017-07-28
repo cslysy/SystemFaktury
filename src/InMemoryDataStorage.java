@@ -8,21 +8,23 @@ public class InMemoryDataStorage implements DataStorage {
 
     //Invoices
     @Override
-    public void saveInvoice(Invoice invoice){
+    public void saveInvoice(Invoice invoice) {
         invoices.add(invoice);
     }
 
     @Override
-    public List<Invoice> getAllInvoices(){
+    public List<Invoice> getAllInvoices() {
         return invoices;
     }
 
     //Receipts
     @Override
-    public void saveReceipt(Receipt receipt) {receipts.add(receipt);}
+    public void saveReceipt(Receipt receipt) {
+        receipts.add(receipt);
+    }
 
     @Override
-    public List<Receipt> getAllReceipts(){
+    public List<Receipt> getAllReceipts() {
         return receipts;
     }
 }

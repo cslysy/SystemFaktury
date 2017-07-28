@@ -50,37 +50,37 @@ public class FileDataStorage implements DataStorage {
         String databaseFilePath = databaseDir + File.separator + INVOICES_DATABASE_FILE_NAME;
 
         //Some new comment
-        return getAllInvoicesOldJava(databaseFilePath);
-        //return getAllInvoicesNewJava(databaseFilePath);
+        //return getAllInvoicesOldJava(databaseFilePath);
+        return getAllInvoicesNewJava(databaseFilePath);
     }
 
-    private List<Invoice> getAllInvoicesOldJava(String databaseFilePath) {
-        int readId;
-        String readTitle;
-        int readValue;
-        int readNip;
-        List<Invoice> lista = new ArrayList<>();
-
-        File file = new File(databaseFilePath);
-        Scanner reader = null;
-        try {
-            reader = new Scanner(file);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        StringTokenizer token;
-        if (reader != null) {
-            while (reader.hasNextLine()) {
-                token = new StringTokenizer(reader.nextLine(), ",");
-                readId = Integer.valueOf(String.valueOf(token.nextElement()));
-                readTitle = String.valueOf(token.nextElement());
-                readValue = Integer.valueOf(String.valueOf(token.nextElement()));
-                readNip = Integer.valueOf(String.valueOf(token.nextElement()));
-                lista.add(new Invoice(readId, readTitle, readValue, readNip));
-            }
-        }
-        return lista;
-    }
+//    private List<Invoice> getAllInvoicesOldJava(String databaseFilePath) {
+//        int readId;
+//        String readTitle;
+//        int readValue;
+//        int readNip;
+//        List<Invoice> lista = new ArrayList<>();
+//
+//        File file = new File(databaseFilePath);
+//        Scanner reader = null;
+//        try {
+//            reader = new Scanner(file);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//        StringTokenizer token;
+//        if (reader != null) {
+//            while (reader.hasNextLine()) {
+//                token = new StringTokenizer(reader.nextLine(), ",");
+//                readId = Integer.valueOf(String.valueOf(token.nextElement()));
+//                readTitle = String.valueOf(token.nextElement());
+//                readValue = Integer.valueOf(String.valueOf(token.nextElement()));
+//                readNip = Integer.valueOf(String.valueOf(token.nextElement()));
+//                lista.add(new Invoice(readId, readTitle, readValue, readNip));
+//            }
+//        }
+//        return lista;
+//    }
 
 
     private List<Invoice> getAllInvoicesNewJava(String databaseFilePath) {
